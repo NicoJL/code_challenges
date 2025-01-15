@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<script type="text/javascript">
+	function solution(str) {
+		var resp = [];
+
+		for(let x=0; x < str.length; x+=2) {
+			let aux = str[x+1] && x <= str.length ? str[x+1] : '_';
+			resp.push(`${str[x]}${aux}`);
+		}
+
+		console.log(resp)
+	}
+
+	solution("");
+</script>
+</body>
+</html>
