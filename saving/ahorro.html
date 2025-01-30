@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ahorro</title>
+</head>
+<body>
+	<input type="number" id="txtWeeks" name="txtWeeks" /> <br /> <br />
+	<button id="btnCalculate">Calculate</button>
+	<h4 id="lblSum"></h4>
+	<ol id="lstSaving"></ol>
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		$(function () {
+			// This function return the position we'll use for the coins array.
+			function getRandomInt (max) {
+				return Math.floor(Math.random() * max);
+			}
+
+			function calculateSaving (weeks) {
+				$("#lstSaving").html('');
+				// This is the amount per week , you can change it.
+				var coins = [10, 20, 50, 100];
+				var saving = [];
+				// var aux = 5000;
+				var aux = weeks;
+				// We took a 52 weeks , a year have these number of weeks.
+				while (aux > 0) {
+					let auxValue = getRandomInt(4);
+					saving.push(coins[auxValue]);
+					// aux -= coins[auxValue];
+					aux --;
+					$("#lstSaving").append("<li>" + coins[auxValue] + "</li>");
+				}
+
+				// Here we make the sum of each week for calculate the total.
+				var sum = saving.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+				$("#lblSum").html("TOTAL AHORRO :" + sum);
+			}
+
+			$("#btnCalculate").click(function (e) {
+				e.preventDefault();
+				var amount = $("#txtWeeks").val();
+				if (parseInt(amount) > 0) {
+					calculateSaving(amount);
+				} else {
+					alert('Introduce a valid number');
+				}
+			});
+			
+		});
+	</script>
+</body>
+</html>
