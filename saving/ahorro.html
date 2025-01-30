@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>ahorro</title>
+	<title>SAVING MONEY</title>
 </head>
 <body>
-	<input type="number" id="txtWeeks" name="txtWeeks" /> <br /> <br />
+	<input type="number" id="txtWeeks" placeholder="Total weeks" name="txtWeeks" /> <br /> <br />
 	<button id="btnCalculate">Calculate</button>
 	<h4 id="lblSum"></h4>
 	<ol id="lstSaving"></ol>
@@ -34,7 +34,7 @@
 
 				// Here we make the sum of each week for calculate the total.
 				var sum = saving.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
-				$("#lblSum").html("TOTAL AHORRO :" + sum);
+				$("#lblSum").html("TOTAL SAVING :" + sum);
 			}
 
 			$("#btnCalculate").click(function (e) {
